@@ -1,6 +1,14 @@
+import React from "react";
+import './styles/globalStyle.css';
+import SideBar from "./components/SideBar";
+import AllPokemons from "./screens/AllPokemons";
+
 function App() {
   return (
-    <h1>Cards Pokemon</h1>
+    <div style={{display:"flex"}}>
+      <SideBar/>
+      <AllPokemons/>
+    </div>
   );
 }
 

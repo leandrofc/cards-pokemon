@@ -4,12 +4,12 @@ import SideBar from "../../components/SideBar";
 import { Container, AllCards} from './styled';
 
 
-function AllPokemons(){
+function MyDeck(){
     return(
         <div style={{display:"flex"}}>
-        <SideBar page={'AllPokemons'}/>
+        <SideBar page={'MyDeck'}/>
         <Container>
-            <Header title="All Pokemons"/>
+            <Header title="My deck"/>
             <AllCards>
                 <Card/>
                 <Card/>
@@ -26,4 +26,4 @@ function AllPokemons(){
     )
 }
 
-export default AllPokemons;
+export default MyDeck;

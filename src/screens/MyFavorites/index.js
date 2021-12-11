@@ -4,12 +4,12 @@ import SideBar from "../../components/SideBar";
 import { Container, AllCards} from './styled';
 
 
-function AllPokemons(){
+function MyFavorites(){
     return(
         <div style={{display:"flex"}}>
-        <SideBar page={'AllPokemons'}/>
+        <SideBar page={'MyFavorites'}/>
         <Container>
-            <Header title="All Pokemons"/>
+            <Header title="My favorites"/>
             <AllCards>
                 <Card/>
                 <Card/>
@@ -26,4 +26,4 @@ function AllPokemons(){
     )
 }
 
-export default AllPokemons;
+export default MyFavorites;

@@ -8,6 +8,7 @@ export const Container = styled.nav`
     display: flex;
     flex-direction: column;
     align-items:center;
+    position: fixed;
 `;
 
 export const ContainerLogo = styled.div`
@@ -31,8 +32,17 @@ export const Nav = styled.ul`
 
 export const MenuItem = styled.li`
     margin-top: 40px;
-    color: white;
+    color: ${(props) => (props.selected ? "#21386E" : "#fff")};
     font-size: 20px;
     list-style-type: none;
     font-weight: bold;
+    text-decoration: ${(props) => (props.selected ? "underline" : "none")};
+
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+
+    &&:hover {
+        color: #21386E;
+        /* text-decoration: underline; */
+    }
 `;

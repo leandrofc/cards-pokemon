@@ -11,12 +11,14 @@ export const Container = styled.div`
 `;
 
 export const AllCards = styled.div`
-  margin: 3% 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  /* .scroll{ */
+    margin: 3% 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
-  @media (max-width: 1000px) {
-    justify-content: center;
-  }
+    @media (max-width: 1000px) {
+      justify-content: center;
+    }
+  /* } */
 `;

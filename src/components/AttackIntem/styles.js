@@ -4,10 +4,13 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: left;
-    margin: 7% 3% 7% 0;
-    
+    /* margin: 7% 3% 7% 0; */
+    margin: 5% 0% 5% 0;
+    width: 390px;
+
     @media (max-width: 1000px) {
         align-items: center;
+        padding: 0 20%;
     }
 `;
 

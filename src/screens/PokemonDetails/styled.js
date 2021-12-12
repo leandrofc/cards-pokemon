@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-   padding: 4% 6%;
+   padding: 0 6%;
    margin-left: 20vw;
 
    @media (max-width: 1000px) {
@@ -79,7 +79,7 @@ export const ListAtacks = styled.div`
   flex-direction: column;
   weight: 100%;
   height: 400px;
-  align-items: center;
+  /* align-items: center; */
   overflow-y: scroll;
   
 

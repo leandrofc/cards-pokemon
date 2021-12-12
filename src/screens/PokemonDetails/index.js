@@ -11,11 +11,12 @@ import AttackItem from "../../components/AttackIntem";
 
 function PokemonDetails(){
     return(
-        <div style={{display:"flex"}}>
+        <div style={{ width: "100%", justifyContent:"center"}}>
         <SideBar page={'AllPokemons'}/>
         <Container>
-            <Link to="/" style={{textDecoration:"none"}}>
-                <FiChevronLeft size={52} color={"#000"}/>
+            <Header clear="clear"/>
+            <Link to="/" style={{textDecoration:"none"}} >
+                <FiChevronLeft size={52} color={"#000"} className="icon"/>
             </Link>
             <Content>
                 <Pokemon>

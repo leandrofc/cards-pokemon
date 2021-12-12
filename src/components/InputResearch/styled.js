@@ -8,6 +8,14 @@ export const Container = styled.div`
   width: 712px;
   align-items: center;
   margin-top: 4%;
+
+  @media (max-width: 1000px) {
+    width: 312px;
+    padding: 1.5% 4.5%;
+    .icon{
+      font-size: 30px;
+    }
+  }
 `;
 
 export const Input = styled.input`
@@ -25,5 +33,9 @@ export const Input = styled.input`
     :focus {
         box-shadow: 0 0 0 0;
         outline: 0;
+    }
+
+    @media (max-width: 1000px) {
+      margin-left: 4.5%;
     }
 `;

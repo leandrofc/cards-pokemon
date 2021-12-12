@@ -3,10 +3,9 @@ import Header from "../../components/Header"
 import SideBar from "../../components/SideBar";
 import { Container, AllCards} from './styled';
 
-
 function AllPokemons(){
     return(
-        <div style={{display:"flex"}}>
+        <div style={{display:"flex", width: "100%"}}>
         <SideBar page={'AllPokemons'}/>
         <Container>
             <Header title="All Pokemons"/>

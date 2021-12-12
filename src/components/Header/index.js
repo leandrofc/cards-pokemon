@@ -1,14 +1,37 @@
+import { useState } from 'react';
 import InputResearch from '../InputResearch';
-import { Container,Title } from './styled';
+import logoSmall from "../../assets/logoSmall.png"
+import { FiMenu } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import MenuMobile from "../MenuMobile";
 
-function Header({title}){
+import { Container,Title, Head, Logo } from './styled';
+
+function Header({title, clear}){
+    const [isOpenMenu, setIsOpenMenu] = useState(false);
+
     return(
-        <Container>
-            <Title>
-                {title}
-            </Title>
-            <InputResearch/>
-        </Container>
+        <>
+            {isOpenMenu && <MenuMobile setIsOpenMenu={setIsOpenMenu}/>}
+            <Container>
+                <Head>
+                    <Link to="/" style={{textDecoration:"none"}}>
+                        <Logo src={logoSmall}/>
+                    </Link>
+                    <FiMenu color={"#fff"} size={35} onClick={()=>{setIsOpenMenu(true)}}/>
+                </Head>
+                
+                {   
+                    !clear &&
+                        <>
+                            <Title>
+                                {title}
+                            </Title>
+                            <InputResearch/>
+                        </> 
+                }
+            </Container>
+        </>
     )
 }
 

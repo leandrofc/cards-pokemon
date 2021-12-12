@@ -6,7 +6,7 @@ import { Container, Input} from './styled';
 function InputResearch(){
     return(
         <Container>
-            <FiSearch color={"#C4C4C4"}/>
+            <FiSearch color={"#C4C4C4"} className="icon"/>
             <Input placeholder="Enter the name of a Pokemon"/>
         </Container>
     )

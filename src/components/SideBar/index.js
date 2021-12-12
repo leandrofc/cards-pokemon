@@ -1,6 +1,7 @@
 import logo from "../../assets/logo.png"
-import { Container,ContainerLogo, Logo, Nav, MenuItem } from './styled';
+import { Container,ContainerLogo, Logo } from './styled';
 import { Link } from "react-router-dom";
+import Menu from "../Menu";
 
 function SideBar({page}){
     return(
@@ -10,17 +11,7 @@ function SideBar({page}){
                     <Logo src={logo}/>
                 </Link>
             </ContainerLogo>
-            <Nav>
-                <Link to="/" style={{textDecoration:"none"}}>
-                    <MenuItem selected={page === 'AllPokemons'}> All Pokemons </MenuItem>
-                </Link>
-                <Link to="/my-deck" style={{textDecoration:"none"}}>
-                    <MenuItem selected={page === 'MyDeck'}> My deck </MenuItem>
-                </Link>
-                <Link to="/my-favorites" style={{textDecoration:"none"}}>
-                    <MenuItem selected={page === 'MyFavorites'}> My favorites </MenuItem>
-                </Link>
-            </Nav>
+            <Menu page={page}/>
         </Container>
     )
 }

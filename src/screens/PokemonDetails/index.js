@@ -22,8 +22,6 @@ function PokemonDetails(){
         const response = await api.get(`/pokemon/${name}`);
         setPokemonInfo(response.data);
         setIsLoading(false)
-
-        // console.log("move:", pokemonInfo)
     }
 
     useEffect(() => {

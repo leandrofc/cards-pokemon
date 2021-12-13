@@ -7,7 +7,7 @@ import MenuMobile from "../MenuMobile";
 
 import { Container,Title, Head, Logo } from './styled';
 
-function Header({title, clear}){
+function Header({title, clear, value, onChange, onClose}){
     const [isOpenMenu, setIsOpenMenu] = useState(false);
 
     return(
@@ -27,7 +27,7 @@ function Header({title, clear}){
                             <Title>
                                 {title}
                             </Title>
-                            <InputResearch/>
+                            <InputResearch value={value} onChange={onChange} onClose={onClose}/>
                         </> 
                 }
             </Container>

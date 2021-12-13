@@ -8,6 +8,7 @@ export const Container = styled.div`
   width: 712px;
   align-items: center;
   margin-top: 4%;
+  justify-content:space-between;
 
   @media (max-width: 1000px) {
     width: 312px;
@@ -20,7 +21,7 @@ export const Container = styled.div`
 
 export const Input = styled.input`
    border: none;
-   width: 400px;
+   width: 600px;
    margin-left: 2.5%;
    font-weight: 400;
    font-weight: normal;

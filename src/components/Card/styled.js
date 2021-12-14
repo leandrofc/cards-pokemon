@@ -28,7 +28,8 @@ export const TextArea = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     width: 80%;
-    margin-top: 6%;
+    margin-top: 10%;
+    margin-left:-10%;
 `;
 
 export const Name = styled.h2`

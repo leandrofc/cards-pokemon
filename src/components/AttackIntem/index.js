@@ -19,8 +19,6 @@ function AttackItem(moveName){
 
     return(
         <Container>
-            {/* <Title>Pound</Title>
-            <Description>Inflicts regular damage with no additional effect</Description> */}
             <Title>{moveName?.moveName}</Title>
             <Description>{moveInfo?.effect_entries[0]?.short_effect}</Description>
         </Container>

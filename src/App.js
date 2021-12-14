@@ -1,13 +1,14 @@
 import React from "react";
 import './styles/globalStyle.css';
-import SideBar from "./components/SideBar";
 import Routes from "./routes";
+import PokemonsProvider from "./context/listPokemons";
 
 function App() {
   return (
     <div style={{display:"flex"}}>
-      {/* <SideBar /> */}
-      <Routes />
+      <PokemonsProvider>
+        <Routes />
+      </PokemonsProvider>
     </div>
   );
 }

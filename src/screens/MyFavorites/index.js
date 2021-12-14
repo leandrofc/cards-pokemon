@@ -1,91 +1,78 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import Card from "../../components/Card";
 import Header from "../../components/Header"
 import SideBar from "../../components/SideBar";
 import { Container, AllCards} from './styled';
-import api from '../../services/api';
-import InfiniteScroll from 'react-infinite-scroll-component'
+import { usePokemons } from "../../context/listPokemons";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function MyFavorites(){
-    const [isLoading, setIsLoading] = useState();
-    const [pokemonsList, setPokemonsList] = useState();
-    const [pokemons, setPokemons] = useState();
+    const [nameSearch, setNameSearch] = useState();
+    const [isSearching, setIsSearching] = useState();
+    const [typingTimer, setTypingTimer] = useState();
 
-    const [offset, setOffset] = useState(41);
-
-    const [text, setText] = useState('');
-    
-    // async function loadData() {
-    //     setIsLoading(true)
-    //     const response = await api.get('/pokemon', {
-    //         params: {
-    //           limit: 21,
-    //         }});
-    //     setPokemonsList(response.data);
-    //     setPokemons(response.data.results)
-    //     setIsLoading(false)
-    // }
-
-    async function loadData() {
-        setIsLoading(true)
-        const response = await api.get('/pokemon', {
-            params: {
-              limit: 21,
-              offset: offset
-            }});
-        setOffset(offset + 21)
-        setPokemonsList(response.data);
-        setPokemons(response.data.results)
-        setIsLoading(false)
-    }
+    const [searchedName, setSearchedName] = useState();
 
     useEffect(() => {
-        loadData();
-    }, [])
+        clearTimeout(typingTimer);
+        nameSearch && setTypingTimer(setTimeout(()=> searchPokemon(), 1000))
+    }, [nameSearch])
 
-    useEffect(() => {
-        console.log("lista de pokemons",pokemons)
-    }, [pokemons])
+    const { pokemonFavorites } = usePokemons();
 
-    async function fetchMore() {
-        setIsLoading(true)
-        const response = await api.get(`${pokemonsList.next.substring(25)}`);
-        setPokemonsList(response.data);
-        setPokemons(...pokemons, response.data.results)
-        setIsLoading(false)
+    function searchPokemon() {
+        const found = pokemonFavorites.find(element => element.name === nameSearch.toLowerCase());
+
+        found && setSearchedName(found?.name)
+        setIsSearching(true)
+
+        !found && toast.error('Pokemon not found in favorites!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+
+        !found && setNameSearch('')
     }
+
+    useEffect(()=>{
+        !isSearching && setNameSearch('');
+        !isSearching && setSearchedName('')
+
+    },[isSearching])
+
+    useEffect(()=>{
+        !nameSearch && setIsSearching(false)
+    },[nameSearch])
 
     return(
         <div style={{display:"flex", width: "100%"}}>
         <SideBar page={'MyFavorites'}/>
         <Container>
-            <Header title="My Favorites"/>
+            <Header title="My Favorites" value={nameSearch} onChange={setNameSearch} onClose={setIsSearching}/>
             <AllCards>
-                {/* <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/> */}
+                {
+                    !isSearching 
+                    ?
+                        pokemonFavorites?.map(pokemon =>
+                            <Card pokemon={pokemon?.name}/>
+                        )
+                    :
+                        <Card pokemon={searchedName}/>
+                }   
 
-                {/* <InfiniteScroll
-                    dataLength={0}
-                    next={fetchMore}  
-                    hasMore={true}  
-                    loader={<h4>Loading...</h4>}
-                    className="scroll"
-                >
-                { pokemons?.map(pokemon => (
-                    <Card pokemon={pokemon?.name} key={pokemon?.name}/>
-                ))}
-                </InfiniteScroll> */}
-                { pokemons?.map(pokemon => (
-                    <Card pokemon={pokemon?.name}/>
-                ))}
+
+                {
+                    pokemonFavorites <= 0 && <p>No cards added yet...</p>
+                }
+
             </AllCards>
+            <ToastContainer />
         </Container>
         </div>
     )

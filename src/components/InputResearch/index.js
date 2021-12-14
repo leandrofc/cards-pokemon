@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { FiSearch, FiX } from "react-icons/fi";
 
 import { Container, Input} from './styled';

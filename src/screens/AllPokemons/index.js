@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import Card from "../../components/Card";
 import Header from "../../components/Header"
 import SideBar from "../../components/SideBar";
@@ -90,14 +90,11 @@ function AllPokemons(){
             <Header title="All Pokemons" value={nameSearch} onChange={setNameSearch} onClose={setIsSearching}/>
             <AllCards>
                 <InfiniteScroll
-                    dataLength={pokemons.length}
+                    dataLength={pokemons?.length}
                     next={fetchMore}
                     hasMore={true}
                     className="scroll"
                 >
-                    {/* {
-                        pokemonNotFound && <p>Pokemon not found!</p>
-                    } */}
                     {
                         !isSearching ?
                             pokemons?.map(pokemon =>

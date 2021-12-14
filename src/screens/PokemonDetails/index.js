@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
-import Card from "../../components/Card";
 import Header from "../../components/Header"
 import SideBar from "../../components/SideBar";
 import { FiChevronLeft } from "react-icons/fi";
-import ClefairyBig from "../../assets/clefairyBig.png"
 import { Link } from "react-router-dom";
 import api from '../../services/api';
 
-import { Container, TopArea, Content, Pokemon, PokemonImage, NamePokemon, Attacks, ListAtacks, TitleList} from './styled';
+import { Container, Content, Pokemon, PokemonImage, NamePokemon, Attacks, ListAtacks, TitleList} from './styled';
 import AttackItem from "../../components/AttackIntem";
 import { useParams } from "react-router-dom";
 
@@ -48,17 +46,8 @@ function PokemonDetails(){
                         {
                             pokemonInfo?.moves?.map(move => (
                                 <AttackItem moveName={move?.move?.name}/>
-                                // console.log(move?.move?.name)
                             ))
                         }
-                        {/* <AttackItem/>
-                        <AttackItem/>
-                        <AttackItem/>
-                        <AttackItem/>
-                        <AttackItem/>
-                        <AttackItem/>
-                        <AttackItem/>
-                        <AttackItem/> */}
                     </ListAtacks>
                 </Attacks>
             </Content>

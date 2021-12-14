@@ -21,7 +21,7 @@ Um app que lista cartas Pokemon. Nele é possível você visualizar, buscar, fav
 Você pode visualizar o layout do projeto através <a href="https://www.figma.com/file/UZycK1SO94Mhs3UqPjDGp5/Untitled?node-id=7%3A16" target="_blank">desse link</a>. É necessário ter conta no Figma para acessá-lo.
 
 
-### Layout:
+### Instalar dependências:
 
 ```sh
 yarn install
@@ -34,7 +34,7 @@ npm install
 ```
 
 
-### Layout:
+### Executar projeto:
 
 ```sh
 yarn start

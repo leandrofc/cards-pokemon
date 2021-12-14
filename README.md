@@ -1,6 +1,6 @@
 # Cards Pokémon
 
-Um app que lista cartas Pokemon. Nele é possível você visualizar, buscar, favoritar e adicionar cartas a um deck.
+Um app que lista cartas Pokemon. Nele é possível visualizar, buscar, favoritar e adicionar cartas a um deck.
 
 
 <p align="left">
